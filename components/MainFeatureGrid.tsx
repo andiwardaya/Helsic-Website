@@ -40,12 +40,12 @@ export const MainFeatureGrid = () => {
 };
 
 type SkeletonProps = {
-  animation: object; // paling sederhana
+  animation: Record<string, unknown>;
 };
 
 const Skeleton = ({ animation }: SkeletonProps) => (
   <div className="flex flex-1 items-center md:w-full md:h-full w-[300px] h-{150px} min-h-[6rem] rounded-xl bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-cyan-300 dark:bg-black">
-    <Lottie animationData={animation as any} loop={true} />
+    <Lottie animationData={animation} loop={true} />
   </div>
 );
 const items = [

@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 export const InfiniteMovingCards = ({
   items,
@@ -22,53 +22,48 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    addAnimation();
-  }, []);
   const [start, setStart] = useState(false);
-  function addAnimation() {
+
+  const getDirection = useCallback(() => {
+    if (!containerRef.current) return;
+    containerRef.current.style.setProperty(
+      '--animation-direction',
+      direction === 'left' ? 'forwards' : 'reverse'
+    );
+  }, [direction]);
+
+  const getSpeed = useCallback(() => {
+    if (!containerRef.current) return;
+    if (speed === 'fast') {
+      containerRef.current.style.setProperty('--animation-duration', '20s');
+    } else if (speed === 'normal') {
+      containerRef.current.style.setProperty('--animation-duration', '40s');
+    } else {
+      containerRef.current.style.setProperty('--animation-duration', '80s');
+    }
+  }, [speed]);
+
+  // ✅ Bungkus addAnimation dengan useCallback supaya stabil
+  const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
+        scrollerRef.current?.appendChild(duplicatedItem);
       });
 
       getDirection();
       getSpeed();
       setStart(true);
     }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === 'left') {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'forwards'
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'reverse'
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === 'fast') {
-        containerRef.current.style.setProperty('--animation-duration', '20s');
-      } else if (speed === 'normal') {
-        containerRef.current.style.setProperty('--animation-duration', '40s');
-      } else {
-        containerRef.current.style.setProperty('--animation-duration', '80s');
-      }
-    }
-  };
+  }, [getDirection, getSpeed]);
+
+  // ✅ Sekarang aman dipanggil di useEffect
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
+
   return (
     <div
       ref={containerRef}
@@ -87,21 +82,20 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <div
+            key={item.name}
             className="relative flex w-[350px] max-w-full h-[350px] shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
             style={{
               backgroundImage: `url(${item.imageUrl})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            key={item.name}
           >
             <div
               aria-hidden="true"
               className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
             ></div>
-
             <div className="flex flex-col items-start">
-              <p className="text-2xl font-bold text-gray-200 shadow-lg rounded-md backdrop:blur-md  bg-black bg-opacity-15">
+              <p className="text-2xl font-bold text-gray-200 shadow-lg rounded-md backdrop:blur-md bg-black bg-opacity-15">
                 {item.name}
               </p>
               <p className="text-sm shadow-md">{item.desc}</p>
