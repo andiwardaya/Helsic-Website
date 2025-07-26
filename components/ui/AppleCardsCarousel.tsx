@@ -5,14 +5,11 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
 } from 'react';
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconX,
-} from '@tabler/icons-react';
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from '@tabler/icons-react';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 import Image, { ImageProps } from 'next/image';
 import { useOutsideClick } from '@/hooks/UseOutsideClick';
 
@@ -164,7 +161,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -183,16 +180,12 @@ export const Card = ({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
 
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
     onCardClose(index);
-  };
+  }, [onCardClose, index]);
+
+  useOutsideClick(containerRef, () => handleClose());
 
   return (
     <>

@@ -3,6 +3,7 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useOutsideClick } from '@/hooks/UseOutsideClick';
+import Image from 'next/image';
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -73,7 +74,7 @@ export function ExpandableCardDemo() {
               className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%] flex flex-col backdrop-blur-xl bg-white/10 border border-white/20 shadow-sm sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
-                <img
+                <Image
                   width={200}
                   height={200}
                   src={active.src}
@@ -129,7 +130,7 @@ export function ExpandableCardDemo() {
         {/* card ketika tidak aktif */}
       </AnimatePresence>
       <ul className="max-w-2xl mx-auto w-full gap-4">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
@@ -138,7 +139,7 @@ export function ExpandableCardDemo() {
           >
             <div className="flex gap-4">
               <motion.div layoutId={`image-${card.title}-${id}`}>
-                <img
+                <Image
                   width={100}
                   height={100}
                   src={card.src}
@@ -211,7 +212,7 @@ const cards = [
   {
     description: 'Dasar Kalistenik',
     title: 'Bab 1',
-    src: 'https://assets.aceternity.com/demos/lana-del-rey.jpeg',
+    src: '/images/brad-pitt.jpg',
     ctaText: 'Lihat',
     ctaLink: 'https://ui.aceternity.com/templates',
     content: () => {
@@ -234,7 +235,7 @@ const cards = [
   {
     description: 'Nutrisi',
     title: 'Bab 2',
-    src: 'https://assets.aceternity.com/demos/babbu-maan.jpeg',
+    src: '/images/brad-pitt.jpg',
     ctaText: 'Lihat',
     ctaLink: 'https://ui.aceternity.com/templates',
     content: () => {
@@ -257,7 +258,7 @@ const cards = [
   {
     description: 'Tidur',
     title: 'Bab 3',
-    src: 'https://assets.aceternity.com/demos/metallica.jpeg',
+    src: '/images/brad-pitt.jpg',
     ctaText: 'Lihat',
     ctaLink: 'https://ui.aceternity.com/templates',
     content: () => {
@@ -279,7 +280,7 @@ const cards = [
   {
     description: 'Kalistenik Tingkat Lanjut',
     title: 'Bab 4',
-    src: 'https://assets.aceternity.com/demos/led-zeppelin.jpeg',
+    src: '/images/brad-pitt.jpg',
     ctaText: 'Lihat',
     ctaLink: 'https://ui.aceternity.com/templates',
     content: () => {
@@ -300,7 +301,7 @@ const cards = [
   {
     description: 'Bonus: Skill Kalistenik',
     title: 'Part 5',
-    src: 'https://assets.aceternity.com/demos/toh-phir-aao.jpeg',
+    src: '/images/brad-pitt.jpg',
     ctaText: 'Lihat',
     ctaLink: 'https://ui.aceternity.com/templates',
     content: () => {

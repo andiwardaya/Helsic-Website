@@ -4,7 +4,7 @@ import { useScroll, useTransform } from 'framer-motion';
 import { GoogleGeminiEffect } from './ui/GeminiEffect';
 
 export const GeminiParent = () => {
-  const ref = React.useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],

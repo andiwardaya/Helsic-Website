@@ -1,14 +1,7 @@
 'use client';
-import { cn } from '@/lib/utils';
 import Lottie from 'lottie-react';
 import React from 'react';
 import { BentoGrid, BentoGridItem } from './ui/bento-grid';
-import {
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from '@tabler/icons-react';
 
 import animationScience from '@/public/animations/science.json';
 import animationBeginnerOne from '@/public/animations/beginnerOne.json';
@@ -47,12 +40,12 @@ export const MainFeatureGrid = () => {
 };
 
 type SkeletonProps = {
-  animation: any;
+  animation: object; // paling sederhana
 };
 
 const Skeleton = ({ animation }: SkeletonProps) => (
   <div className="flex flex-1 items-center md:w-full md:h-full w-[300px] h-{150px} min-h-[6rem] rounded-xl bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-cyan-300 dark:bg-black">
-    <Lottie animationData={animation} loop={true} />
+    <Lottie animationData={animation as any} loop={true} />
   </div>
 );
 const items = [

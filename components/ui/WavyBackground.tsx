@@ -1,7 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import React, { useEffect, useRef, useState } from 'react';
-// @ts-ignore
+import React, { useEffect, useRef, useState, ReactNode } from 'react';
 import SimplexNoise from 'simplex-noise';
 
 export const WavyBackground = ({
@@ -16,7 +15,7 @@ export const WavyBackground = ({
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: any;
+  children?: ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -25,7 +24,7 @@ export const WavyBackground = ({
   blur?: number;
   speed?: 'slow' | 'fast';
   waveOpacity?: number;
-  [key: string]: any;
+  [key: string]: unknown;
 }) => {
   const noise = new SimplexNoise();
   let w: number,
