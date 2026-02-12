@@ -32,7 +32,7 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <>
+    <div className="bg-black">
       <AnimatePresence>
         {active && typeof active === 'object' && (
           <motion.div
@@ -63,7 +63,7 @@ export function ExpandableCardDemo() {
                   duration: 0.05,
                 },
               }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6 z-[100] "
+              className="flex absolute top-4 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6 z-[100] "
               onClick={() => setActive(null)}
             >
               <CloseIcon />
@@ -129,13 +129,13 @@ export function ExpandableCardDemo() {
 
         {/* card ketika tidak aktif */}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
+      <ul className="max-w-2xl mx-auto w-full gap-4 bg-black">
         {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
-            className="p-4 flex justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            className="p-4 flex justify-between items-center mx-2 hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4">
               <motion.div layoutId={`image-${card.title}-${id}`}>
@@ -150,13 +150,13 @@ export function ExpandableCardDemo() {
               <div className="">
                 <motion.h3
                   layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-200 text-left"
+                  className="font-bold text-blue-100 text-left"
                 >
                   {card.title}
                 </motion.h3>
                 <motion.p
                   layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-400 text-left"
+                  className="text-neutral-300 text-left"
                 >
                   {card.description}
                 </motion.p>
@@ -171,7 +171,7 @@ export function ExpandableCardDemo() {
           </motion.div>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

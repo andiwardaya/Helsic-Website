@@ -48,8 +48,8 @@ const FAQLiquidGlass = () => {
   };
 
   return (
-    <div className="bg-[#0a0a0a]  p-6">
-      <h1 className="text-center text-2xl md:text-4xl font-bold mb-4">
+    <div className="bg-slate-950  p-6">
+      <h1 className="text-center text-2xl md:text-4xl font-bold mb-4 text-gray-100 my-2">
         Ada Pertanyaan?
       </h1>
       <div className="max-w-2xl mx-auto space-y-4">

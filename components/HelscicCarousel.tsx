@@ -7,7 +7,7 @@ export function HelscicCarousel() {
   ));
 
   return (
-    <div className="w-full h-full py-20">
+    <div className="w-full h-full py-20 bg-slate-950">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl  text-neutral-800 dark:text-neutral-200 font-sans">
         <span className="text-4xl md:text-6xl text-purple-500 font-bold">
           Protokol Helsic

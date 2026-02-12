@@ -38,7 +38,7 @@ export const MovingCardsParent = () => {
         items={testimonials}
         direction="left"
         speed="fast"
-        pauseOnHover={true}
+        pauseOnHover={false}
         className="mx-auto"
       />
       <div className="flex items-center justify-center">

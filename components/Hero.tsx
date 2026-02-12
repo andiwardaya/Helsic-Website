@@ -8,19 +8,19 @@ const word = 'kita akan bantu merubah tubuhmu.';
 
 export const Hero = () => {
   return (
-    <section className="w-full py-36">
+    <section className="w-full py-24 bg-black h-screen">
       <Spotlight className="top-20 -left-10 h-screen" fill="white" />
       <Spotlight className="-top-2 left-3 h-screen" fill="white" />
 
-      <div className=" mx-auto px-4 flex flex-col gap-3 justify-center items-center mt-20">
+      <div className=" mx-auto px-3 flex flex-col gap-8 justify-center items-center mt-24">
         <TextGenerateEffect
           duration={2}
           words={word}
-          className="text-gray-200 text-6xl md:text-8xl font-bold max-w-3xl  text-center"
+          className="text-gray-200 text-5xl md:text-8xl font-bold max-w-3xl  text-center"
         />
         <ContainerTextFlip
           textClassName="text-blue-100"
-          words={['natural', 'dirumah', 'murah & efektif', 'tanpa gym']}
+          words={['natural', 'dirumah', 'efektif', 'efisien', 'tanpa gym']}
         />
         <p className="text-gray-500 text-sm md:text-base my-6 justify-center text-center max-w-2xl">
           Siap bentuk badan terbaikmu dari{' '}

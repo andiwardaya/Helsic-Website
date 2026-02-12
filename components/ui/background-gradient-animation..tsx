@@ -35,8 +35,8 @@ export const BackgroundGradientAnimation = ({
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
 
-  const [curX, setCurX] = useState(0);
-  const [curY, setCurY] = useState(0);
+  const curX = useRef(0);
+  const curY = useRef(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
   useEffect(() => {
@@ -70,19 +70,25 @@ export const BackgroundGradientAnimation = ({
   ]);
 
   useEffect(() => {
-    function move() {
-      if (!interactiveRef.current) {
-        return;
+    let rafId: number;
+    const move = () => {
+      // easing pada ref, bukan state
+      curX.current += (tgX - curX.current) / 20;
+      curY.current += (tgY - curY.current) / 20;
+      if (interactiveRef.current) {
+        interactiveRef.current.style.transform = `translate(${Math.round(curX.current)}px, ${Math.round(curY.current)}px)`;
       }
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(
-        curX
-      )}px, ${Math.round(curY)}px)`;
-    }
-
-    move();
-  }, [curX, curY, tgX, tgY]);
+      // ulangi sampai dekat target
+      if (
+        Math.abs(tgX - curX.current) > 0.5 ||
+        Math.abs(tgY - curY.current) > 0.5
+      ) {
+        rafId = requestAnimationFrame(move);
+      }
+    };
+    rafId = requestAnimationFrame(move);
+    return () => cancelAnimationFrame(rafId);
+  }, [tgX, tgY]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {
