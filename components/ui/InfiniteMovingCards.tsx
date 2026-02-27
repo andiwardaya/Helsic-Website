@@ -83,7 +83,7 @@ export const InfiniteMovingCards = ({
         {items.map((item) => (
           <div
             key={item.name}
-            className="relative flex w-[350px] max-w-full h-[350px] shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
+            className="relative flex w-[350px] max-w-full h-[350px] shrink-0 rounded-2xl border border-b-0  px-8 py-6 md:w-[450px] border-zinc-700 bg-[linear-gradient(180deg,#27272a,#18181b)]"
             style={{
               backgroundImage: `url(${item.imageUrl})`,
               backgroundSize: 'cover',
@@ -94,11 +94,11 @@ export const InfiniteMovingCards = ({
               aria-hidden="true"
               className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
             ></div>
-            <div className="flex flex-col items-start">
-              <p className="text-2xl font-bold text-gray-200 shadow-lg rounded-md backdrop:blur-md bg-black bg-opacity-15">
+            <div className="flex flex-col items-start text-gray-200">
+              <p className="text-2xl font-bold  shadow-lg rounded-md backdrop:blur-md bg-black bg-opacity-15">
                 {item.name}
               </p>
-              <p className="text-sm shadow-md">{item.desc}</p>
+              <p className="text-sm shadow-md ">{item.desc}</p>
             </div>
           </div>
         ))}

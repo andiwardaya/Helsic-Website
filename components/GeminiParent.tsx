@@ -19,7 +19,7 @@ export const GeminiParent = () => {
   return (
     <div
       ref={ref}
-      className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+      className="h-[400vh] bg-black w-full rounded-md relative py-60 mb-20 overflow-clip"
     >
       <GoogleGeminiEffect
         pathLengths={[

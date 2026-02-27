@@ -8,7 +8,7 @@ const word = 'kita akan bantu merubah tubuhmu.';
 
 export const Hero = () => {
   return (
-    <section className="w-full py-24 bg-black h-screen">
+    <section className="w-full py-20 bg-black h-screen">
       <Spotlight className="top-20 -left-10 h-screen" fill="white" />
       <Spotlight className="-top-2 left-3 h-screen" fill="white" />
 

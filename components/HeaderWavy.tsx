@@ -6,7 +6,7 @@ import { FaPlayCircle } from 'react-icons/fa';
 export const HeaderWavy = () => {
   return (
     <WavyBackground backgroundFill="#0a0a0a" waveOpacity={1}>
-      <div className="flex flex-col items-center gap-10  pt-8 mx-10">
+      <div className="flex flex-col items-center gap-10  pt-8 mx-10 ">
         <div className=" backdrop-blur-md bg-white/10 border border-white/10 shadow-md px-2 py-3 rounded-xl">
           <h1 className="text-center font-bold text-4xl md:text-6xl lg:text-7xl text-white ">
             Modul Protokol Helsic

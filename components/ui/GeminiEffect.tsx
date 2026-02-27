@@ -20,7 +20,7 @@ export const GoogleGeminiEffect = ({
   className?: string;
 }) => {
   return (
-    <div className={cn('sticky top-80', className)}>
+    <div className={cn('sticky top-72', className)}>
       <div className="flex flex-col">
         <p className="text-3xl md:text-7xl font-bold px-1 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
           {title || `Build with Aceternity UI`}
@@ -33,7 +33,7 @@ export const GoogleGeminiEffect = ({
         </p>
       </div>
 
-      <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
+      <div className="w-full h-[890px] -top-60 md:-top-40 flex items-center justify-center bg-red-transparent absolute ">
         <a
           href="#"
           target="_blank"
@@ -45,7 +45,7 @@ export const GoogleGeminiEffect = ({
       </div>
       <svg
         width="1440"
-        height="890"
+        height="880"
         viewBox="0 0 1440 890"
         xmlns="http://www.w3.org/2000/svg"
         className=" absolute -top-60  md:-top-40 w-full"

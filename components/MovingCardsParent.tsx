@@ -28,7 +28,7 @@ const testimonials = [
 export const MovingCardsParent = () => {
   return (
     <section className="py-10 bg-black">
-      <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white mb-6 py-9 px-2">
+      <h2 className="text-center text-2xl font-bold text-white mb-6 py-9 px-2">
         Kalian datang di tempat yang
         <span className="text-blue-100 font-bold text-3xl"> tepat</span> tepat
         jika ingin membentuk badan seperti ini

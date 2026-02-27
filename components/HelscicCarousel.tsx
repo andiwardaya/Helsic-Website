@@ -8,12 +8,21 @@ export function HelscicCarousel() {
 
   return (
     <div className="w-full h-full py-20 bg-slate-950">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl  text-neutral-800 dark:text-neutral-200 font-sans">
-        <span className="text-4xl md:text-6xl text-purple-500 font-bold">
-          Protokol Helsic
-        </span>{' '}
-        akan merubah badanmu seperti ini
-      </h2>
+      <div className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl text-neutral-200 font-sans">
+        <h2 className="">
+          <span className="text-4xl md:text-6xl text-purple-500 font-bold">
+            Protokol Helsic
+          </span>{' '}
+          akan merubah badanmu seperti ini
+        </h2>
+        <p className="text-sm mt-2">
+          tanpa <span className="text-purple-500 font-bold">peptide,</span>{' '}
+          tanpa
+          <span className="text-purple-500 font-bold"> steroid,</span> hanya
+          disiplin dan kerja keras
+        </p>
+      </div>
+
       <Carousel items={cards} />
     </div>
   );
@@ -36,39 +45,39 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: '2016, 42 kg',
-    title: 'fotoku ketika belum mengenal workout',
+    category: '42 kg',
+    title: '',
     src: '/images/kuru1.jpg',
     content: <DummyContent />,
   },
   {
-    category: '2017, 45kg',
-    title: 'awal mengenal workout, tapi masih goblog',
+    category: '45kg',
+    title: '',
     src: '/images/kuru3.jpg',
     content: <DummyContent />,
   },
   {
-    category: '2018, 52 kg',
-    title: 'sudah kenal workout, tapi masih goblog juga',
+    category: '52 kg',
+    title: '',
     src: '/images/kuru2.jpg',
     content: <DummyContent />,
   },
 
   {
     category: '64kg',
-    title: 'fotoku ketika belum mengenal workout',
+    title: '',
     src: '/images/kuru2.jpg',
     content: <DummyContent />,
   },
   {
     category: '64kg',
-    title: 'fotoku ketika belum mengenal workout',
+    title: '',
     src: '/images/kuru2.jpg',
     content: <DummyContent />,
   },
   {
     category: '64kg',
-    title: 'fotoku ketika belum mengenal workout',
+    title: '',
     src: '/images/kuru2.jpg',
     content: <DummyContent />,
   },

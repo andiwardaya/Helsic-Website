@@ -129,7 +129,7 @@ export const WavyBackground = ({
   return (
     <div
       className={cn(
-        'relative h-[600px] flex flex-col items-center justify-center',
+        'relative h-[600px] flex flex-col items-center justify-center ',
         containerClassName
       )}
     >
